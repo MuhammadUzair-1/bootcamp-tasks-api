@@ -29,9 +29,13 @@ services:
     build: .
     ports:
       - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       DATABASE_URL: postgresql+psycopg2://tasks:tasks@db:5432/tasks
       REDIS_URL: redis://redis:6379/0
+      MLFLOW_TRACKING_URI: http://host.docker.internal:5000
+      MODEL_VERSION: "3"
     depends_on:
       db:
         condition: service_healthy

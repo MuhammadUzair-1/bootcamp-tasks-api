@@ -5,3 +5,13 @@ venv/
 .venv/
 *.egg-info/
 dist/
+
+# Local MLflow tracking data
+mlflow.db
+mlflow.log
+mlartifacts/
+
+# Python environment and cache
+.venv/
+__pycache__/
+*.pyc
